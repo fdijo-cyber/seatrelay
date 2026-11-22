@@ -15,3 +15,7 @@ Use counts only. The planner runs in your browser and needs no account or intern
 ## Pilot feedback
 
 Running a workshop soon? [Join the free pilot and tell us what worked](https://github.com/fdijo-cyber/seatrelay/issues/1). Use approximate counts and leave attendee details out of the public thread.
+
+## Support
+
+[Start here for SeatRelay support](https://github.com/fdijo-cyber/seatrelay/issues/2) or [open a technical support issue](https://github.com/fdijo-cyber/seatrelay/issues/new?template=support.md). These threads are public. For payment or delivery questions, use the seller contact on your PayPal receipt.
