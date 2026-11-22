@@ -12,6 +12,14 @@ For a workshop with 40 seats, 36 confirmations, 12 people on the waitlist, and a
 
 Use counts only. The planner runs in your browser and needs no account or internet connection once downloaded.
 
+## SeatRelay Workshop Kit · $9 USD
+
+The Workshop Kit includes an offline check-in board, bulk booking-code import, duplicate check-in prevention, attendance CSV and backup export, and a workshop runbook.
+
+[Preview the $9 USD PayPal checkout](https://www.paypal.com/ncp/payment/HVUJHAVF8UF5Y)
+
+**Ordering is on hold while delivery is being verified. Please wait before paying.** The free planner above is available now.
+
 ## Pilot feedback
 
 Running a workshop soon? [Join the free pilot and tell us what worked](https://github.com/fdijo-cyber/seatrelay/issues/1). Use approximate counts and leave attendee details out of the public thread.
