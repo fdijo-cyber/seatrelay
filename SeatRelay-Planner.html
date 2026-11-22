@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Forecast workshop turnout, see how many waitlist seats you can safely release, and download a free attendance planning template.">
+<meta name="theme-color" content="#f6f8f4">
+<title>SeatRelay | Free workshop attendance planner</title>
+<style>
+:root{color-scheme:light;--ink:#132925;--soft:#4c6159;--green:#0d503d;--wash:#e5f0e8;--paper:#f6f8f4;--line:#ccd9d1;--white:#fff;--lime:#d6f485}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.55 system-ui,sans-serif}a{color:var(--green)}a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #3f765c;outline-offset:4px}.wrap{width:min(1080px,calc(100% - 48px));margin:auto}.top{display:flex;align-items:center;justify-content:space-between;min-height:76px;border-bottom:1px solid var(--line);gap:16px}.brand{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:780;letter-spacing:-.04em;text-decoration:none}.mark{width:28px;height:28px;display:grid;grid-template-columns:repeat(2,1fr);gap:3px;padding:4px;background:var(--green);border-radius:7px}.mark i{background:var(--lime);border-radius:2px}.mark i:last-child{background:transparent;border:1px solid var(--lime)}nav{display:flex;gap:22px}nav a{font-weight:650;text-decoration:none}.hero{display:grid;grid-template-columns:1fr minmax(320px,.92fr);gap:clamp(30px,6vw,76px);align-items:center;padding:clamp(46px,8vw,99px) 0 74px}.category{font-size:.9rem;font-weight:760;color:var(--green);letter-spacing:.065em;text-transform:uppercase}.hero h1{font-size:clamp(3.1rem,6.2vw,5.4rem);line-height:.98;letter-spacing:-.085em;margin:15px 0 23px}.hero h1 span{color:var(--green)}.lead{color:var(--soft);font-size:1.19rem;max-width:34ch}.link-button,button{display:inline-block;font:inherit;font-weight:740;border:0;border-radius:8px;background:var(--green);color:var(--white);padding:11px 17px;text-decoration:none;cursor:pointer}.secondary{background:var(--wash);color:var(--green)}.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,3vw,28px);box-shadow:0 12px 36px #13292512}.card h2,.panel h2{letter-spacing:-.045em;line-height:1.1;margin:0 0 10px}.hint,.note{color:var(--soft);font-size:.92rem}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}.fields label{font-weight:670;font-size:.91rem;display:block}.fields input{display:block;width:100%;border:1px solid #9aafa2;border-radius:7px;padding:8px 10px;margin-top:5px;font:inherit;color:var(--ink);background:var(--paper)}.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;background:var(--wash);padding:12px;border-radius:10px}.summary strong{font-size:1.63rem;display:block;color:var(--green);line-height:1.2}.summary small{display:block;font-size:.86rem;line-height:1.25}.help{min-height:2.7em;margin:12px 0;line-height:1.42}.downloads{padding:50px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.panel{padding:28px;border:1px solid var(--line);border-radius:14px;background:var(--white)}.panel.dark{background:var(--green);color:var(--white);border-color:var(--green)}.dark .hint{color:#e0f2e8}.faq{padding:8px 0 52px;max-width:760px}.faq h2{font-size:2rem;letter-spacing:-.055em}.faq details{border-bottom:1px solid var(--line);padding:12px 0}.faq summary{cursor:pointer;font-weight:700}.faq details p{margin:8px 0;color:var(--soft)}footer{border-top:1px solid var(--line);padding:20px 0 30px;color:var(--soft);font-size:.9rem}.footerline{display:flex;gap:8px 20px;flex-wrap:wrap;align-items:baseline;justify-content:space-between}@media(max-width:760px){.wrap{width:min(100% - 32px,540px)}.hero,.downloads{grid-template-columns:1fr}.hero{padding-bottom:42px}.downloads{padding-top:36px}.hero h1{max-width:11ch}}@media(max-width:370px){nav{gap:12px}.summary{padding:9px}.summary small{font-size:.8rem}}
+</style>
+</head>
+<body id="top">
+<header class="wrap top"><a class="brand" href="#top"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>SeatRelay</a><nav aria-label="Main"><a href="#planner">Planner</a><a href="#resources">Resources</a></nav></header>
+<main class="wrap">
+<section class="hero" aria-labelledby="headline">
+<div><p class="category">For free workshop organizers</p><h1 id="headline">Plan for who <span>shows up.</span></h1><p class="lead">Estimate turnout, release waitlist seats within capacity, and give your volunteers a clearer headcount.</p><a class="link-button" href="#resources">Get the free checklist</a></div>
+<section class="card" id="planner" aria-labelledby="planner-title">
+<h2 id="planner-title">Workshop attendance planner</h2>
+<p class="hint">Adjust the example to match your event.</p>
+<form id="plan">
+<div class="fields">
+<label>Venue capacity<input id="capacity" type="number" inputmode="numeric" value="40" min="1" max="100000" required></label>
+<label>Confirmed seats<input id="confirmed" type="number" inputmode="numeric" value="36" min="0" max="100000" required></label>
+<label>Waitlist count<input id="waiting" type="number" inputmode="numeric" value="12" min="0" max="100000" required></label>
+<label>Expected no-shows (%)<input id="rate" type="number" inputmode="decimal" value="20" min="0" max="100" step="0.1" required></label>
+</div>
+<div class="summary" aria-live="polite"><div><strong id="expected">29</strong><small>Expected at the door</small></div><div><strong id="release">4</strong><small>Waitlist seats to offer</small></div><div><strong id="open">11</strong><small>Estimated empty seats</small></div></div>
+<p id="message" class="hint help" role="status">Forecast uses current confirmations. An offer uses a seat until it expires or is declined.</p>
+<button id="export" class="secondary" type="submit">Download plan CSV</button>
+<noscript><p class="hint">Enable JavaScript to change the example and export your plan.</p></noscript>
+</form>
+</section></section>
+<section id="resources" class="downloads" aria-label="Workshop planning resources">
+<div class="panel"><h2>Free reconfirmation checklist</h2><p>Get a deadline, a waitlist release sequence and three messages to adapt for your next workshop.</p><button id="starter" type="button">Download checklist</button></div>
+<div class="panel dark"><h2>Work with your existing registration tool</h2><p>Use aggregate counts from your sign-up list. The planner estimates attendance and helps you decide how many waitlist offers you can make within capacity.</p><a class="link-button secondary" href="#faq">Read how it works</a></div>
+</section>
+<section id="faq" class="faq" aria-labelledby="faq-title">
+<h2 id="faq-title">Common questions</h2>
+<details><summary>How are waitlist openings calculated?</summary><p>The planner subtracts confirmed seats from capacity and limits new offers to the number on your waitlist. Count active unexpired offers as confirmed while planning so you never allocate a seat twice.</p></details>
+<details><summary>How should I estimate no-shows?</summary><p>Use comparable workshops and start with the number still confirmed at your cutoff. Subtract confirmed guests who checked in, then divide by the number confirmed at the cutoff. Treat the example percentage as a scenario if you have no prior data.</p></details>
+<details><summary>Can I keep my current registration tool?</summary><p>Yes. Use the planner alongside your current sign-up form. Keep attendee contact lists in your registration tool. The planner only needs totals.</p></details>
+<details><summary>What data does this planner use?</summary><p>It uses aggregate counts in this tab. Calculations and downloads run on your device. This page sets no cookies, adds no analytics scripts and asks for no names, emails or payment details. A hosting provider may process requests under its own terms.</p></details>
+<details><summary>What are the planner's limitations?</summary><p>Results are estimates. Confirm the venue's actual usable capacity and count staff or reserved seats where relevant. A forecast of empty seats never increases the number of safe offers.</p></details>
+</section>
+</main>
+<footer class="wrap footerline"><span>SeatRelay</span><span>Workshop attendance tools</span></footer>
+<script>
+const starter = `SEATRELAY · FREE RECONFIRMATION CHECKLIST
+
+1. Count usable attendee seats and set a reconfirmation deadline. Tell attendees in advance what happens if they miss the deadline.
+2. Invite guests to reply KEEP or RELEASE using your existing registration channel. Follow up once before the deadline.
+3. At the deadline, release seats under the rule shared at registration. Make waitlist offers one seat at a time or in batches no larger than verified openings. Record every outstanding offer as reserved until it expires.
+4. Prepare the check-in list of confirmed booking codes. Record walk-ins separately and count them within the venue limit.
+5. After the event, record confirmations at cutoff, confirmed attendees who checked in, and walk-ins. Use comparable events to plan next time.
+
+RECONFIRM
+You have a seat for [workshop] on [date, time, timezone]. Please reply KEEP or RELEASE by [deadline]. We will offer unconfirmed seats to the waitlist after that deadline. If you need help, reply to this message.
+
+WAITLIST OFFER
+A seat is available for [workshop]. Reply ACCEPT before [deadline, timezone] to claim it. We will reply to confirm your seat.
+
+FINAL REMINDER
+Your seat for [workshop] is confirmed. Doors open at [time] at [venue]. Your check-in code is [code]. If plans changed, reply RELEASE so we can offer the seat to someone else.
+`;
+const fields = ['capacity', 'confirmed', 'waiting', 'rate'].map(id => document.getElementById(id));
+const form = document.getElementById('plan');
+const exportButton = document.getElementById('export');
+function refresh() {
+  const valid = fields.every(field => field.validity.valid);
+  const [capacity, confirmed, waiting, rate] = fields.map(field => field.valueAsNumber);
+  const expected = Math.round(confirmed * (1 - rate / 100));
+  const release = Math.min(waiting, Math.max(0, capacity - confirmed));
+  const open = Math.max(0, capacity - expected);
+  for (const [id, value] of Object.entries({expected, release, open})) {
+    document.getElementById(id).textContent = valid ? value.toLocaleString('en') : '–';
+  }
+  let message = 'Forecast uses current confirmations. An offer uses a seat until it expires or is declined.';
+  if (!valid) message = 'Enter valid counts and a no-show rate from 0 to 100%.';
+  else if (confirmed > capacity) message = 'Confirmed seats exceed venue capacity. Resolve the excess before offering any seats.';
+  document.getElementById('message').textContent = message;
+  exportButton.disabled = !valid;
+  return {capacity, confirmed, waiting, rate, expected, release, open};
+}
+function download(name, value, type) {
+  const url = URL.createObjectURL(new Blob([value], {type}));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = name;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+form.addEventListener('input', refresh);
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  const entry = refresh();
+  download('seatrelay-attendance-plan.csv', Object.keys(entry).join(',') + '\n' + Object.values(entry).join(',') + '\n', 'text/csv');
+});
+document.getElementById('starter').addEventListener('click', () => download('seatrelay-reconfirmation-checklist.txt', starter, 'text/plain'));
+refresh();
+</script>
+</body></html>
