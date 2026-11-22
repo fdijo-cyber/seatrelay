@@ -1,0 +1,43 @@
+name: Acknowledge new support issues
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+concurrency:
+  group: seatrelay-support-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  acknowledge:
+    if: github.event.issue.user.type == 'User'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+    steps:
+      - name: Post a single acknowledgment
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$ISSUE_NUMBER" =~ ^[1-9][0-9]*$ ]]
+          existing=$(gh api --paginate "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/comments" \
+            --jq '.[] | select(.user.login == "github-actions[bot]" and (.body | contains("<!-- seatrelay-support-ack -->"))) | .id')
+          if [[ -n "$existing" ]]; then
+            echo 'Issue already acknowledged.'
+            exit 0
+          fi
+          gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file - <<'MESSAGE'
+          <!-- seatrelay-support-ack -->
+          Thanks for contacting SeatRelay. This is an automated acknowledgment.
+
+          - **Planner setup:** [Download the latest planner](https://github.com/fdijo-cyber/seatrelay/releases/latest) and open the HTML file in your browser. JavaScript must be enabled.
+          - **Something went wrong:** tell us your browser, what you expected, and how to reproduce it with sample counts.
+          - **Payment or delivery:** contact the seller through the contact information on your PayPal receipt. This thread is public. Leave out receipts, transaction IDs, attendee lists, and contact details.
+
+          An acknowledgment does not mean the issue has been resolved.
+          MESSAGE
