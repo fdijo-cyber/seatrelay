@@ -1,0 +1,38 @@
+name: Publish free planner download
+
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/publish-planner.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: seatrelay-planner-v1
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: planner-v1.0.0
+    steps:
+      - name: Publish the offline HTML
+        shell: bash
+        run: |
+          if gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo 'The planner release already exists.'
+            exit 0
+          fi
+          gh api --method GET "repos/$GITHUB_REPOSITORY/contents/SeatRelay-Planner.html" \
+            -f "ref=$GITHUB_SHA" \
+            -H "Accept: application/vnd.github.raw+json" > SeatRelay-Planner.html
+          test -s SeatRelay-Planner.html
+          gh release create "$RELEASE_TAG" SeatRelay-Planner.html \
+            --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
+            --title "SeatRelay Attendance Planner 1.0" \
+            --notes "Download SeatRelay-Planner.html and open the file in a browser. Includes the free turnout and capacity planner, CSV export, and reconfirmation checklist."
