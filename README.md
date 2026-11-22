@@ -2,7 +2,7 @@
 
 A free, offline tool for planning attendance at workshops and other small events.
 
-1. Open [SeatRelay-Planner.html](./SeatRelay-Planner.html) and select **Download raw file** on GitHub.
+1. [Download SeatRelay-Planner.html](https://github.com/fdijo-cyber/seatrelay/releases/download/planner-v1.0.0/SeatRelay-Planner.html).
 2. Open the downloaded file in a browser.
 3. Enter your venue capacity, confirmed bookings, waitlist count, and expected no-show rate.
 
