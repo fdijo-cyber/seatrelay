@@ -11,3 +11,7 @@ The planner estimates turnout, caps waitlist offers at the number of unreserved 
 For a workshop with 40 seats, 36 confirmations, 12 people on the waitlist, and an estimated no-show rate of 20%, it forecasts 29 arrivals and four seats you can safely offer.
 
 Use counts only. The planner runs in your browser and needs no account or internet connection once downloaded.
+
+## Pilot feedback
+
+Running a workshop soon? [Join the free pilot and tell us what worked](https://github.com/fdijo-cyber/seatrelay/issues/1). Use approximate counts and leave attendee details out of the public thread.
